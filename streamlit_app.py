@@ -12,11 +12,8 @@ Original file is located at
 # %%writefile healthy-heart-app.py
 import streamlit as st
 
-# Install dependencies
 st.set_option('deprecation.showfileUploaderEncoding', False)
-with st.spinner('Installing dependencies...'):
-    # Install required packages
-    st._install_package("scikit-learn==0.24.2")
+
 
 import base64
 import numpy as np
