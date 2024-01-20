@@ -10,7 +10,7 @@ Original file is located at
 
 # Commented out IPython magic to ensure Python compatibility.
 # %%writefile healthy-heart-app.py
-import scikit-learn
+import sklearn
 import streamlit as st
 import base64
 import numpy as np
