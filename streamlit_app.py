@@ -74,7 +74,7 @@ def preprocess(age, sex, cp, trestbps, restecg, chol, fbs, thalach, exang, oldpe
     user_input = np.array(user_input)
     user_input = user_input.reshape(1, -1)
     user_input = scal.fit_transform(user_input)
-    prediction = model.predict(user_input)
+    prediction = uploaded_file.predict(user_input)
 
     return prediction
 
