@@ -10,12 +10,12 @@ Original file is located at
 
 # Commented out IPython magic to ensure Python compatibility.
 # %%writefile healthy-heart-app.py
-
+import sklearn as sk
 import streamlit as st
 import base64
 import numpy as np
 import pickle as pkl
-from scikit-learn.preprocessing import MinMaxScaler
+from sk.preprocessing import MinMaxScaler
 
 st.set_page_config(page_title="Healthy Heart App", page_icon="⚕️", layout="centered", initial_sidebar_state="expanded")
 scal = MinMaxScaler()
