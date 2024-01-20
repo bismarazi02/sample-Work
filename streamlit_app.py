@@ -104,7 +104,7 @@ oldpeak = st.number_input('Oldpeak')
 slope = st.selectbox('Heart Rate Slope',("Upsloping: better heart rate with exercise(uncommon)","Flatsloping: minimal change(typical healthy heart)","Downsloping: signs of unhealthy heart"))
 ca = st.selectbox('Number of Major Vessels Colored by Fluoroscopy', range(0, 5, 1))
 thal = st.selectbox('Thalium Stress Result', range(1, 8, 1))
-scal.fit(training_data)
+scal = MinMaxScaler()
 if st.button("Predict"):
     user_input = np.array([age, sex, cp, trestbps, restecg, chol, fbs, thalach, exang, oldpeak, slope, ca, thal])
     user_input = user_input.reshape(1, -1)
