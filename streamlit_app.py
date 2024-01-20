@@ -77,7 +77,7 @@ user_input=np.array(user_input)
 user_input=user_input.reshape(1,-1)
 user_input=scal.fit_transform(user_input)
 prediction = model.predict(user_input)
-return prediction
+    return prediction
 
 html_temp = """
     <div style ="background-color:pink;padding:13px">
