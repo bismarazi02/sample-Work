@@ -142,8 +142,4 @@ def preprocess(age,sex,cp,trestbps,restecg,chol,fbs,thalach,exang,oldpeak,slope,
 #   st.info("Caution: This is just a prediction and not doctoral advice. Kindly see a doctor if you feel the symptoms persist.")
 # 
 # 
-# 
-# Writing healthy-heart-app.py
-# !nohup streamlit run healthy-heart-app.py &
-# url = ngrok.connect(port='8501')
-# url
+
