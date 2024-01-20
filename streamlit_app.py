@@ -11,10 +11,6 @@ Original file is located at
 # Commented out IPython magic to ensure Python compatibility.
 # %%writefile healthy-heart-app.py
 import streamlit as st
-
-st.set_option('deprecation.showfileUploaderEncoding', False)
-
-
 import base64
 import numpy as np
 import pickle as pkl
