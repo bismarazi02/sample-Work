@@ -105,7 +105,7 @@ slope = st.selectbox('Heart Rate Slope',("Upsloping: better heart rate with exer
 ca = st.selectbox('Number of Major Vessels Colored by Fluoroscopy', range(0, 5, 1))
 thal = st.selectbox('Thalium Stress Result', range(1, 8, 1))
 
-scal.fit(X_train)
+
 
 if st.button("Predict"):
     user_input = np.array([age, sex, cp, trestbps, restecg, chol, fbs, thalach, exang, oldpeak, slope, ca, thal])
