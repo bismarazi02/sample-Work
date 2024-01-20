@@ -70,15 +70,22 @@ def preprocess(age, sex, cp, trestbps, restecg, chol, fbs, thalach, exang, oldpe
         restecg = 1
     elif restecg == "Possible or definite left ventricular hypertrophy":
         restecg = 2
-        def preprocess(age, sex, cp, trestbps, restecg, chol, fbs, thalach, exang, oldpeak, slope, ca, thal, model, scal):
-            user_input = np.array([age, sex, cp, trestbps, restecg, chol, fbs, thalach, exang, oldpeak, slope, ca, thal])
-            user_input = user_input.reshape(1, -1)
-            user_input = scal.transform(user_input)
-            prediction = model.predict(user_input)
+        ef preprocess(age, sex, cp, trestbps, restecg, chol, fbs, thalach, exang, oldpeak, slope, ca, thal, model, scal, default_value):
+    user_input = np.array([age, sex, cp, trestbps, restecg, chol, fbs, thalach, exang, oldpeak, slope, ca, thal])
+    user_input = user_input.reshape(1, -1)
+    user_input = scal.transform(user_input)
+    prediction = model.predict(user_input)
+
+    # Check if prediction is not None and has a non-zero length before accessing its elements
     return prediction[0] if prediction is not None and len(prediction) > 0 else default_value
-    result = preprocess(age, sex, cp, trestbps, restecg, chol, fbs, thalach, exang, oldpeak, slope, ca, thal, model, scal)
-    if result[0] == 0:
-        
+
+# Example usage:
+# Replace 'model', 'scal', and 'default_value' with your actual model, scaler, and default value
+# Also, provide values for age, sex, cp, trestbps, restecg, chol, fbs, thalach, exang, oldpeak, slope, ca, thal
+result = preprocess(age, sex, cp, trestbps, restecg, chol, fbs, thalach, exang, oldpeak, slope, ca, thal, model, scal, default_value)
+
+# Check the result before accessing its elements
+if result[0] == 0:
         html_temp = """
         <div style ="background-color:pink;padding:13px">
         <h1 style ="color:black;text-align:center;">Healthy Heart App</h1>
