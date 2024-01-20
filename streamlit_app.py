@@ -81,6 +81,7 @@ def preprocess(age, sex, cp, trestbps, restecg, chol, fbs, thalach, exang, oldpe
         return prediction[0] if prediction is not None and len(prediction) > 0 else default_value
     else:
         st.error("Model not loaded. Please upload a model file.")
+
                 
 html_temp = """
 <div style ="background-color:pink;padding:13px">
