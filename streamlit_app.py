@@ -70,7 +70,10 @@ def preprocess(age, sex, cp, trestbps, restecg, chol, fbs, thalach, exang, oldpe
         restecg = 1
     elif restecg == "Possible or definite left ventricular hypertrophy":
         restecg = 2
+scal = MinMaxScaler()
 
+# Fit the MinMaxScaler with the training data
+scal.fit(final_model.p)  
     user_input = np.array([age, sex, cp, trestbps, restecg, chol, fbs, thalach, exang, oldpeak, slope, ca, thal])
     user_input = user_input.reshape(1, -1)
     user_input = scal.transform(user_input)
