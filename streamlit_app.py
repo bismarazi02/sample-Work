@@ -10,25 +10,18 @@ Original file is located at
 
 # Commented out IPython magic to ensure Python compatibility.
 # %%writefile healthy-heart-app.py
-# import streamlit as st
-# import base64
-# import sklearn
-# import numpy as np
-# import pickle as pkl
-# from sklearn.preprocessing import MinMaxScaler
-# scal=MinMaxScaler()
-# #Load the saved model
-# model=pkl.load(open("final_model.p","rb"))
-# 
-# 
-# 
-# 
-# 
-# st.set_page_config(page_title="Healthy Heart App",page_icon="⚕️",layout="centered",initial_sidebar_state="expanded")
-# 
-# 
-# 
-# def preprocess(age,sex,cp,trestbps,restecg,chol,fbs,thalach,exang,oldpeak,slope,ca,thal ):
+import streamlit as st
+import base64
+import sklearn
+import numpy as np
+import pickle as pkl
+from sklearn.preprocessing import MinMaxScaler
+scal=MinMaxScaler()
+
+model=pkl.load(open("final_model.p","rb"))
+
+st.set_page_config(page_title="Healthy Heart App",page_icon="⚕️",layout="centered",initial_sidebar_state="expanded")
+def preprocess(age,sex,cp,trestbps,restecg,chol,fbs,thalach,exang,oldpeak,slope,ca,thal ):
 # 
 # 
 #     # Pre-processing user input
