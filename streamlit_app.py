@@ -17,6 +17,7 @@ import pickle as pkl
 
 
 st.set_page_config(page_title="Healthy Heart App", page_icon="⚕️", layout="centered", initial_sidebar_state="expanded")
+scal = MinMaxScaler()
 #model = pkl.load(open('final_model.p', "rb"))
 uploaded_file = st.file_uploader("Upload your model file (final_model.p)", type=["pkl"])
 
