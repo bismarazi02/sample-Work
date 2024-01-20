@@ -21,7 +21,7 @@ scal=MinMaxScaler()
 st.set_page_config(page_title="Healthy Heart App", page_icon="⚕️", layout="centered", initial_sidebar_state="expanded")
 
 #model = pkl.load(open('final_model.p', "rb"))
-uploaded_file = st.file_uploader("Upload your model file (final_model.p)", type=["pkl"])
+model = st.file_uploader("Upload your model file (final_model.p)", type=["pkl"])
 
 #st.set_page_config(page_title="Healthy Heart App", page_icon="⚕️", layout="centered", initial_sidebar_state="expanded")
 def preprocess(age, sex, cp, trestbps, restecg, chol, fbs, thalach, exang, oldpeak, slope, ca, thal):
@@ -74,7 +74,7 @@ def preprocess(age, sex, cp, trestbps, restecg, chol, fbs, thalach, exang, oldpe
     user_input = np.array(user_input)
     user_input = user_input.reshape(1, -1)
     user_input = scal.fit_transform(user_input)
-    prediction = uploaded_file.predict(user_input)
+    prediction = model.predict(user_input)
 
     return prediction
 
