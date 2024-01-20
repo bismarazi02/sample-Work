@@ -105,13 +105,21 @@ slope = st.selectbox('Heart Rate Slope',("Upsloping: better heart rate with exer
 ca = st.selectbox('Number of Major Vessels Colored by Fluoroscopy', range(0, 5, 1))
 thal = st.selectbox('Thalium Stress Result', range(1, 8, 1))
 
-pred = preprocess(age, sex, cp, trestbps, restecg, chol, fbs, thalach, exang, oldpeak, slope, ca, thal)
+# ... (previous code)
 
 if st.button("Predict"):
-    if pred[0] == 0:
-        st.error('Warning! You have a high risk of getting a heart attack!')
+    pred = preprocess(age, sex, cp, trestbps, restecg, chol, fbs, thalach, exang, oldpeak, slope, ca, thal, model, scal, default_value)
+
+    if pred is not None and len(pred) > 0:
+        if pred[0] == 0:
+            st.error('Warning! You have a high risk of getting a heart attack!')
+        else:
+            st.success('You have a lower risk of getting a heart disease!')
     else:
-        st.success('You have a lower risk of getting a heart disease!')
+        st.warning('Prediction not available. Please check your input values.')
+
+# ... (rest of your code)
+
 
 st.sidebar.subheader("About App")
 st.sidebar.info("This web app helps you find out whether you are at risk of developing a heart disease.")
