@@ -110,6 +110,8 @@ thal = st.selectbox('Thalium Stress Result', range(1, 8, 1))
 if st.button("Predict"):
     pred = preprocess(age, sex, cp, trestbps, restecg, chol, fbs, thalach, exang, oldpeak, slope, ca, thal, model, scal, default_value)
 
+    print("Debugging: pred =", pred)
+
     if pred is not None and len(pred) > 0:
         if pred[0] == 0:
             st.error('Warning! You have a high risk of getting a heart attack!')
@@ -117,9 +119,6 @@ if st.button("Predict"):
             st.success('You have a lower risk of getting a heart disease!')
     else:
         st.warning('Prediction not available. Please check your input values.')
-
-# ... (rest of your code)
-
 
 st.sidebar.subheader("About App")
 st.sidebar.info("This web app helps you find out whether you are at risk of developing a heart disease.")
