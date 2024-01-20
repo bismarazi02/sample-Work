@@ -1,4 +1,3 @@
-pip install --upgrade 
 numpy
 pandas
 streamlit
