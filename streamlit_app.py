@@ -17,13 +17,13 @@ import numpy as np
 import pickle as pkl
 import sklearn
 from sklearn.preprocessing import MinMaxScaler
-scal=MinMaxScaler()
+
 
 st.set_page_config(page_title="Healthy Heart App", page_icon="⚕️", layout="centered", initial_sidebar_state="expanded")
 
 #model = pkl.load(open('final_model.p', "rb"))
 model = st.file_uploader("Upload your model file (final_model.p)", type=["pkl"])
-
+scal = MinMaxScaler()
 #st.set_page_config(page_title="Healthy Heart App", page_icon="⚕️", layout="centered", initial_sidebar_state="expanded")
 def preprocess(age, sex, cp, trestbps, restecg, chol, fbs, thalach, exang, oldpeak, slope, ca, thal, model, scal, default_value):
     if sex == "male":
@@ -105,24 +105,23 @@ slope = st.selectbox('Heart Rate Slope',("Upsloping: better heart rate with exer
 ca = st.selectbox('Number of Major Vessels Colored by Fluoroscopy', range(0, 5, 1))
 thal = st.selectbox('Thalium Stress Result', range(1, 8, 1))
 
-# ... (previous code)
-
-default_value = 0  # Define your default value here
-
 if st.button("Predict"):
-    pred = preprocess(age, sex, cp, trestbps, restecg, chol, fbs, thalach, exang, oldpeak, slope, ca, thal, model, scal, default_value)
+    user_input = np.array([age, sex, cp, trestbps, restecg, chol, fbs, thalach, exang, oldpeak, slope, ca, thal])
+    user_input = user_input.reshape(1, -1)
+    user_input = scal.transform(user_input)
 
-    print("Debugging: pred =", pred)
-
-    if pred is not None and len(pred) > 0:
-        if pred[0] == 0:
-            st.error('Warning! You have a high risk of getting a heart attack!')
+    # Check if model is loaded before predicting
+    if model is not None:
+        prediction = model.predict(user_input)
+        if prediction is not None and len(prediction) > 0:
+            if prediction[0] == 0:
+                st.error('Warning! You have a high risk of getting a heart attack!')
+            else:
+                st.success('You have a lower risk of getting a heart disease!')
         else:
-            st.success('You have a lower risk of getting a heart disease!')
+            st.warning('Prediction not available. Please check your input values.')
     else:
-        st.warning('Prediction not available. Please check your input values.')
-
-# ... (rest of your code)
+        st.error("Model not loaded. Please upload a model file.")
 
 
 st.sidebar.subheader("About App")
