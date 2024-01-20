@@ -140,3 +140,5 @@ def preprocess(age,sex,cp,trestbps,restecg,chol,fbs,thalach,exang,oldpeak,slope,
 # if feedback:
 #   st.header("Thank you for rating the app!")
 #   st.info("Caution: This is just a prediction and not doctoral advice. Kindly see a doctor if you feel the symptoms persist.")
+
+
