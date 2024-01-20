@@ -104,15 +104,7 @@ oldpeak = st.number_input('Oldpeak')
 slope = st.selectbox('Heart Rate Slope',("Upsloping: better heart rate with exercise(uncommon)","Flatsloping: minimal change(typical healthy heart)","Downsloping: signs of unhealthy heart"))
 ca = st.selectbox('Number of Major Vessels Colored by Fluoroscopy', range(0, 5, 1))
 thal = st.selectbox('Thalium Stress Result', range(1, 8, 1))
-df = pd.read_csv('your_dataset.csv')
 
-# Extract the features you want to scale
-features_to_scale = df[['age', 'trestbps', 'chol', 'thalach', 'oldpeak']]
-
-# Create MinMaxScaler instance
-scal = MinMaxScaler()
-
-# Fit the MinMaxScaler with the training data
 scal.fit(X_train)
 
 if st.button("Predict"):
