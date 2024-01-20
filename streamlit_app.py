@@ -10,8 +10,14 @@ Original file is located at
 
 # Commented out IPython magic to ensure Python compatibility.
 # %%writefile healthy-heart-app.py
-pip install --upgrade pip
 import streamlit as st
+
+# Install dependencies
+st.set_option('deprecation.showfileUploaderEncoding', False)
+with st.spinner('Installing dependencies...'):
+    # Install required packages
+    st._install_package("scikit-learn==0.24.2")
+
 import base64
 import numpy as np
 import pickle as pkl
