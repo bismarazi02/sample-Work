@@ -70,7 +70,7 @@ def preprocess(age, sex, cp, trestbps, restecg, chol, fbs, thalach, exang, oldpe
         restecg = 1
     elif restecg == "Possible or definite left ventricular hypertrophy":
         restecg = 2
-        ef preprocess(age, sex, cp, trestbps, restecg, chol, fbs, thalach, exang, oldpeak, slope, ca, thal, model, scal, default_value):
+        def preprocess(age, sex, cp, trestbps, restecg, chol, fbs, thalach, exang, oldpeak, slope, ca, thal, model, scal, default_value):
     user_input = np.array([age, sex, cp, trestbps, restecg, chol, fbs, thalach, exang, oldpeak, slope, ca, thal])
     user_input = user_input.reshape(1, -1)
     user_input = scal.transform(user_input)
