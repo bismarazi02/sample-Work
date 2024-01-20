@@ -12,7 +12,6 @@ Original file is located at
 # %%writefile healthy-heart-app.py
 
 import streamlit as st
-import sklearn
 import base64
 import numpy as np
 import pickle as pkl
