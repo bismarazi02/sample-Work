@@ -83,8 +83,8 @@ def preprocess(age, sex, cp, trestbps, restecg, chol, fbs, thalach, exang, oldpe
                 <h1 style ="color:black;text-align:center;">Healthy Heart App</h1>
                 </div>
                 """
-st.markdown(html_temp, unsafe_allow_html=True)
-st.subheader('by ')
+                st.markdown(html_temp, unsafe_allow_html=True)
+                st.subheader('by ')
 
 age = st.selectbox("Age", range(1, 121, 1))
 sex = st.radio("Select Gender: ", ('male', 'female'))
