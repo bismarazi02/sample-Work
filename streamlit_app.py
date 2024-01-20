@@ -16,12 +16,11 @@ import numpy as np
 import pickle as pkl
 
 
-
+st.set_page_config(page_title="Healthy Heart App", page_icon="⚕️", layout="centered", initial_sidebar_state="expanded")
 #model = pkl.load(open('final_model.p', "rb"))
 uploaded_file = st.file_uploader("Upload your model file (final_model.p)", type=["pkl"])
-import streamlit as st
 
-st.set_page_config(page_title="Healthy Heart App", page_icon="⚕️", layout="centered", initial_sidebar_state="expanded")
+#st.set_page_config(page_title="Healthy Heart App", page_icon="⚕️", layout="centered", initial_sidebar_state="expanded")
 def preprocess(age, sex, cp, trestbps, restecg, chol, fbs, thalach, exang, oldpeak, slope, ca, thal):
     if sex == "male":
         sex = 1
