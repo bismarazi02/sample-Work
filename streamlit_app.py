@@ -78,13 +78,11 @@ def preprocess(age, sex, cp, trestbps, restecg, chol, fbs, thalach, exang, oldpe
             return prediction[0] if prediction is not None and len(prediction) > 0 else default_value
             result = preprocess(age, sex, cp, trestbps, restecg, chol, fbs, thalach, exang, oldpeak, slope, ca, thal, model, scal, default_value)
             if result[0] == 0:
-
-                
-html_temp = """
-<div style ="background-color:pink;padding:13px">
-<h1 style ="color:black;text-align:center;">Healthy Heart App</h1>
-</div>
-"""
+                html_temp = """
+                <div style ="background-color:pink;padding:13px">
+                <h1 style ="color:black;text-align:center;">Healthy Heart App</h1>
+                </div>
+                """
 st.markdown(html_temp, unsafe_allow_html=True)
 st.subheader('by ')
 
