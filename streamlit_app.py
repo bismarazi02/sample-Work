@@ -84,7 +84,7 @@ html_temp = """
 <div style ="background-color:pink;padding:13px">
 <h1 style ="color:black;text-align:center;">Healthy Heart App</h1>
 </div>
- """
+"""
 st.markdown(html_temp, unsafe_allow_html=True)
 st.subheader('by ')
 
