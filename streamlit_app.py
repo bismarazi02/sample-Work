@@ -12,7 +12,6 @@ Original file is located at
 # %%writefile healthy-heart-app.py
 import streamlit as st
 import base64
-import sklearn
 import numpy as np
 import pickle as pkl
 from sklearn.preprocessing import MinMaxScaler
