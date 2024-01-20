@@ -72,7 +72,7 @@ def preprocess(age, sex, cp, trestbps, restecg, chol, fbs, thalach, exang, oldpe
         restecg = 2
 
 numeric_scaler = MinMaxScaler()
-encoder = OneHotEncoder(sparse=False)
+
 
 def preprocess(age, sex, cp, trestbps, restecg, chol, fbs, thalach, exang, oldpeak, slope, ca, thal):
     # Separate numeric and categorical features
