@@ -75,17 +75,17 @@ def preprocess(age, sex, cp, trestbps, restecg, chol, fbs, thalach, exang, oldpe
             user_input = user_input.reshape(1, -1)
             user_input = scal.transform(user_input)
             prediction = model.predict(user_input)
-            return prediction[0] if prediction is not None and len(prediction) > 0 else default_value
+    return prediction[0] if prediction is not None and len(prediction) > 0 else default_value
             result = preprocess(age, sex, cp, trestbps, restecg, chol, fbs, thalach, exang, oldpeak, slope, ca, thal, model, scal)
-            if result[0] == 0:
-                html_temp = """
-                <div style ="background-color:pink;padding:13px">
-                <h1 style ="color:black;text-align:center;">Healthy Heart App</h1>
-                </div>
-                """
-
-st.markdown(html_temp, unsafe_allow_html=True)
-st.subheader('by Amlan Mohanty ')
+    if result[0] == 0:
+        
+        html_temp = """
+        <div style ="background-color:pink;padding:13px">
+        <h1 style ="color:black;text-align:center;">Healthy Heart App</h1>
+        </div>
+        """
+        st.markdown(html_temp, unsafe_allow_html=True)
+        st.subheader('by ')
 
 age = st.selectbox("Age", range(1, 121, 1))
 sex = st.radio("Select Gender: ", ('male', 'female'))
