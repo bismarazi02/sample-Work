@@ -15,7 +15,7 @@ import streamlit as st
 import base64
 import numpy as np
 import pickle as pkl
-from sklearn.preprocessing import MinMaxScaler
+from scikit-learn.preprocessing import MinMaxScaler
 
 st.set_page_config(page_title="Healthy Heart App", page_icon="⚕️", layout="centered", initial_sidebar_state="expanded")
 scal = MinMaxScaler()
