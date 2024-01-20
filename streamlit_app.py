@@ -17,7 +17,7 @@ import pickle as pkl
 
 
 
-model = pkl.load(open("https://github.com/bismarazi02/sample-Work/blob/main/final_model.p", "rb"))
+model = pkl.load(open('final_model.p', "rb"))
 
 st.set_page_config(page_title="Healthy Heart App", page_icon="⚕️", layout="centered", initial_sidebar_state="expanded")
 
