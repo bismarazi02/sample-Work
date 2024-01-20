@@ -74,7 +74,9 @@ def preprocess(age, sex, cp, trestbps, restecg, chol, fbs, thalach, exang, oldpe
     # Pre-processing user input
     user_input = [age, sex, cp, trestbps, restecg, chol, fbs, thalach, exang, oldpeak, slope, ca, thal]
     user_input = np.array(user_input).reshape(1, -1)
-    user_input = scal.transform(user_input)
+    
+    # Fit the scaler and transform the data
+    user_input = scal.fit_transform(user_input)
     
     # Ensure the 'model' variable is accessible here
     prediction = model.predict(user_input)
