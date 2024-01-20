@@ -77,13 +77,11 @@ scal.fit(final_model.p)
 user_input = np.array([age, sex, cp, trestbps, restecg, chol, fbs, thalach, exang, oldpeak, slope, ca, thal])
 user_input = user_input.reshape(1, -1)
 user_input = scal.transform(user_input)
-
-    # Check if model is loaded before predicting
-    if model is not None:
-        prediction = model.predict(user_input)
-        return prediction[0] if prediction is not None and len(prediction) > 0 else default_value
-    else:
-        st.error("Model not loaded. Please upload a model file.")
+if model is not None:
+    prediction = model.predict(user_input)
+    return prediction[0] if prediction is not None and len(prediction) > 0 else default_value
+else:
+    st.error("Model not loaded. Please upload a model file.")
 
                 
 html_temp = """
