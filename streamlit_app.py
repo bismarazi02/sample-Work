@@ -71,16 +71,13 @@ def preprocess(age, sex, cp, trestbps, restecg, chol, fbs, thalach, exang, oldpe
     elif restecg == "Possible or definite left ventricular hypertrophy":
         restecg = 2
 
-numeric_scaler = MinMaxScaler()
-
-
+#numeric_scaler = MinMaxScaler()
 user_input=[age,sex,cp,trestbps,restecg,chol,fbs,thalach,exang,oldpeak,slope,ca,thal]
-    user_input=np.array(user_input)
-    user_input=user_input.reshape(1,-1)
-    user_input=scal.fit_transform(user_input)
-    prediction = model.predict(user_input)
-
-    return prediction
+user_input=np.array(user_input)
+user_input=user_input.reshape(1,-1)
+user_input=scal.fit_transform(user_input)
+prediction = model.predict(user_input)
+return prediction
 
 html_temp = """
     <div style ="background-color:pink;padding:13px">
