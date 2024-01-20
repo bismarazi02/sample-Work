@@ -70,18 +70,30 @@ def preprocess(age, sex, cp, trestbps, restecg, chol, fbs, thalach, exang, oldpe
     elif restecg == "Possible or definite left ventricular hypertrophy":
         restecg = 2
 
+numeric_scaler = MinMaxScaler()
+encoder = OneHotEncoder(sparse=False, drop='first')  # drop the first column to avoid multicollinearity
+
 def preprocess(age, sex, cp, trestbps, restecg, chol, fbs, thalach, exang, oldpeak, slope, ca, thal):
-    # Pre-processing user input
-    user_input = [age, sex, cp, trestbps, restecg, chol, fbs, thalach, exang, oldpeak, slope, ca, thal]
-    user_input = np.array(user_input).reshape(1, -1)
-    
-    # Fit the scaler and transform the data
-    user_input = scal.fit_transform(user_input)
-    
+    # Separate numeric and categorical features
+    numeric_features = [age, trestbps, chol, thalach, oldpeak]
+    categorical_features = [sex, cp, restecg, fbs, exang, slope, ca, thal]
+
+    # Transform numeric features
+    numeric_input = np.array(numeric_features).reshape(1, -1)
+    numeric_input = numeric_scaler.fit_transform(numeric_input)
+
+    # Transform categorical features
+    categorical_input = np.array(categorical_features).reshape(1, -1)
+    categorical_input = encoder.fit_transform(categorical_input)
+
+    # Combine numeric and categorical features
+    user_input = np.concatenate((numeric_input, categorical_input), axis=1)
+
     # Ensure the 'model' variable is accessible here
     prediction = model.predict(user_input)
-    
+
     return prediction
+
 
 html_temp = """
     <div style ="background-color:pink;padding:13px">
