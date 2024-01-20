@@ -15,7 +15,7 @@ import base64
 import numpy as np
 import pickle as pkl
 
-scal = MinMaxScaler()
+
 
 model = pkl.load(open("final_model.p", "rb"))
 
